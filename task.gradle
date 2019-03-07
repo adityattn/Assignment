@@ -1,0 +1,7 @@
+
+task disp1<<{
+    println "disp 1 in task.gradle"
+}
+task dis2<<{
+    println "disp2 in task.gradle"
+}

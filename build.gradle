@@ -1,0 +1,90 @@
+apply plugin: "java"
+apply from: 'mytask.gradle'
+
+
+
+
+
+repositories{
+    mavenCentral()
+}
+dependencies{
+    compile 'org.hibernate:hibernate-core:3.6.7.Final'
+    compile 'org.apache.commons:commons-lang3:3.6'
+}
+
+
+
+jar{
+    manifest{
+        attributes 'Implementation-Title': 'Gradle Exercises',
+                'Implementation-Version': '1.0',
+             'Main-Class': 'Main2'
+           //     'Main-Class': 'Application'
+    }
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['source/main/java/com/intelligrape/gradle']
+        }
+    }
+}
+task uberjar(type: Jar){
+    manifest{
+        attributes 'Main-Class': 'Application'
+    }
+    baseName= 'executable-fat-jar'
+    from{
+        configurations.compile.collect{ it.isDirectory() ? it : zipTree(it)}
+    }
+    with jar
+}
+
+
+sourceSets {
+    main {
+        resources {
+            srcDirs = ['source/main/resources']
+            exclude 'file1.txt'
+        }
+    
+    }
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['source/main/java1','source/main/java2']
+        }
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+apply from:'task.gradle'
+
+task hello <<{
+    println "hello"
+}
+task dis<<{
+    println "display"
+}
+task greet <<{
+    println "Welcome aditya"
+}
+task intro(dependsOn:hello)<<{
+    println "i am gradle"
+}
+hello <<{println "hello extended"}
+greet.dependsOn hello,intro
