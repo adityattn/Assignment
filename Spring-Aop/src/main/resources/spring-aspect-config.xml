@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <aop:aspectj-autoproxy/>
+
+    <!--ex4-->
+    <!--<bean id="service1" class="ex4.ExceptionService"></bean>-->
+    <!--<bean id="serviceAspect1" class="ex4.ExceptionServiceAspects"></bean>-->
+
+    <!--ex5 -->
+    <bean id="service2" class="ex5.Service"></bean>
+    <bean id="serviceAspect2" class="ex5.ServiceAspects"></bean>
+
+    <bean id="exceptionService" class="ex6.ExceptionService"></bean>
+    <bean id="exceptionServiceAspects" class="ex6.ExceptionServiceAspects"></bean>
+
+    <bean id="pointCutAspects" class="ex8.PointCutAspects"></bean>
+    <bean id="pointCutService" class="ex8.PointCutService"></bean>
+
+    <bean id="beforeAdvice" class="ex9.BeforeAdvice"></bean>
+    <bean id="beforeAspects" class="ex9.BeforeAspects"></bean>
+
+   <bean id="serviceBean" class="ex7.ServiceBean"></bean>
+    <bean id="serviceBeanAspects" class="ex7.ServiceBeanAspects"></bean>
+
+
+</beans>
